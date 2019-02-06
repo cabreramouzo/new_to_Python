@@ -1,64 +1,31 @@
+def convert(n, roman):    
+    return (0, "I")
 
-#global vars
-roman = ""
+def arabic_to_roman(num):
+    roman = ''
+    while num > 0 :
+        num, roman = convert(num, roman)
+    return roman
 
-def addSymbol(symbol):
-    global roman
-    roman = roman + symbol
-    
+def prompt_for_arabic():
+    num = input('Enter the number to convert: \n')
+    return int(num)
 
-def convert(num):
-    
-    if num >= 1000:
-        addSymbol("M")
-        num = num - 1000
-    elif num >= 900:
-        addSymbol("CM")
-        num = num - 900
-    elif num >= 500:
-        addSymbol("D")
-        num = num - 500
-    elif num >= 400:
-        addSymbol("DC")
-        num = num - 500
-    elif num >= 100:
-        addSymbol("C")
-        num = num - 100
-    elif num >= 90:
-        addSymbol("XC")
-        num = num - 90
-    elif num >= 50:
-        addSymbol("L")
-        num = num - 50
-    elif num >= 40:
-        addSymbol("XL")
-        num = num - 500
-    elif num >= 10:
-        addSymbol("X")
-        num = num - 10
-    elif num >= 9:
-        addSymbol("IX")
-        num = num - 9
-    elif num >= 5:
-        addSymbol("V")
-        num = num - 5
-    elif num is 4:
-        addSymbol("IV")
-        num = num - 4;
-    elif num >= 1:
-        addSymbol("I")
-        num = num - 1
-    return num;
+def main():    
+    arabic = prompt_for_arabic()
+    roman = arabic_to_roman(arabic)
+    print(f'The {arabic} is written as {roman} in roman numerals')
 
-print ( "Hello Roman!\n")
-
-num = input('Enter the number to convert: \n')
-
-num =  int(num)
+def hello(name):
+    print(f'Hello {name}')
 
 
-while num > 0 :
-    num = convert(num)
-    
-print (roman)
+def test_1_to_I():
+    assert arabic_to_roman(1) == "I"
+
+def test_2_to_II():
+    assert arabic_to_roman(1) == "II"    
+
+if __name__ == '__main__':
+    main()
     
