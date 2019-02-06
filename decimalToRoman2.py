@@ -1,3 +1,4 @@
+#manual algorithm retrieved from https://www.rapidtables.com/convert/number/how-number-to-roman-numerals.html
 def convert(num, roman):    
     if num >= 1000:
         roman += "M"
@@ -64,7 +65,7 @@ def main():
 def hello(name):
     print(f'Hello {name}')
 
-
+#definir los tests de py.test con el prefijo "test_"
 def test_1_to_I():
     assert arabic_to_roman(1) == "I"
 def test_2_to_II():
