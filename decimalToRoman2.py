@@ -53,14 +53,51 @@ def arabic_to_roman(num):
         num, roman = convert(num, roman)
     return roman
 
-def prompt_for_arabic():
+def roman_to_arabic(roman):
+    print ("NPI")
+    roman = 0
+    return roman
+
+def prompt_for_arabic_to_roman():
+    print ("Hi Arabic, \n")
+    num = input('enter the number to convert: \n')
+    return int(num)
+
+def prompt_for_roman_to_arabic():
+    print ("Hi Roman, \n")
     num = input('Enter the number to convert: \n')
     return int(num)
 
-def main():    
-    arabic = prompt_for_arabic()
-    roman = arabic_to_roman(arabic)
-    print(f'The {arabic} is written as {roman} in roman numerals')
+
+def is_a_deity(name):
+    return name.upper() == "ALLAH" or name.upper() == "JUPITER"
+
+def test_is_not_a_deity():
+    assert not is_a_deity("something")
+
+def test_Allah_a_deity():
+    assert is_a_deity("Allah")
+
+def test_Jupiter_a_deity():
+    assert is_a_deity("Jupiter")
+
+def main():
+    deity = input ("Who is your Deity? Allah or Jupiter\n")
+
+    while not is_a_deity(deity): 
+        print ('Please, type "Allah" or "Jupiter" \n 
+        deity = input ("Who is your Deity? Allah or Jupiter\n")
+
+    if deity.upper() == "ALLAH":
+        arabic = prompt_for_arabic_to_roman()
+        result = arabic_to_roman(arabic)
+        print(f'The {arabic} is written as {result} in roman numerals')
+    else:
+        roman = prompt_for_roman_to_arabic()
+        result = roman_to_arabic(roman)
+        print(f'The {roman} is written as {result} in arabic numerals')
+    
+    
 
 def hello(name):
     print(f'Hello {name}')
@@ -106,7 +143,6 @@ def test_2834_to_MMDCCCXXXIV():
     assert arabic_to_roman(2834) == "MMDCCCXXXIV"
 def test_3666_to_MMMDCLXVI():
     assert arabic_to_roman(3666) == "MMMDCLXVI"
-
 
 
 if __name__ == '__main__':
